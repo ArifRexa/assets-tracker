@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mx-auto w-3/4">
+
+    <h1 class="text-3xl font-bold underline text-center mt-10">
+        Edit Company Details!
+
+    </h1>
+    <div class="container mx-auto w-3/4 mt-10 mb-10">
+
+        <form method="post" enctype="multipart/form-data" action="">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <!-- <div class="form-group">
+                <label >Blog Title</label>
+                {{ form.title }}
+            </div>
+            <div class="form-group">
+                <label >Description</label>
+                {{ form.content }}
+            </div>
+            <div class="form-group">
+                <label class="pb-5">Blog Category</label>
+                {{ form.category }}
+            </div>
+            <div class="form-group">
+                <label >Tags</label>
+                {{ form.tags }}
+            </div>
+            <div class="form-group">
+                <label >Featured Image</label>
+                {{ form.featured_image }}
+            </div>
+            <div class="form-group">
+                <label >Author Image</label>
+                {{ form.author_image }}
+            </div> -->
+            <button type="submit"
+                class="text-white mt-3 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Save
+                Changes</button>
+        </form>
+
+
+
+
+
+    </div>
+</div>
+  
+{% endblock content %}

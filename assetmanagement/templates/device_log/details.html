@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+This is device logs
+
+
+<!-- <li>Company: {{d_log.device.company}}</li> -->
+<li>Device Name: {{d_log.device.name}}</li>
+<li>Employee: {{d_log.employee.name}}</li>
+<li>Employee Email: {{d_log.employee.email}}</li>
+{% if d_log.device.is_checked_out %}
+<li>Checked Out: Yes</li>
+{% else %}
+<li>Checked Out: No</li>
+{% endif %}
+<li>Checkout: {{d_log.checkout_date}}</li>
+
+<li>Return: {{d_log.return_date}}</li>
+<li>Condition: {{d_log.condition_log}}</li>
+
+<br>
+
+<a href="{% url 'edit_d_log' d_log.id%}"  class="text-white bg-blue-700  hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Edit</a>
+
+<a href="{% url 'delete_d_log' d_log.id%}"  class="text-white bg-blue-700  hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Delete</a>
+
+
+
+{% endblock content %}

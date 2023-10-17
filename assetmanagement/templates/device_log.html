@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+This is device log html
+<br><br>
+<a href="{% url 'add_d_log' %}" type="button"
+    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Add
+    Device Log</a>
+<br>
+<ul>
+    {% for i in d_log %}
+
+    <!-- <li>Company: {{i.device.company}}</li> -->
+    <li>Device Name: {{i.device.name}}</li>
+    <li>Employee: {{i.employee.name}}</li>
+    <!-- <li>Employee Email: {{i.employee.email}}</li>
+    {% if i.device.is_checked_out %}
+    <li>Checked Out: Yes</li>
+    {% else %}
+    <li>Checked Out: No</li>
+    {% endif %}
+    <li>Checkout: {{i.checkout_date}}</li>
+
+    <li>Return: {{i.return_date}}</li>
+    <li>Condition: {{i.condition_log}}</li> -->
+
+    <br>
+    <a href="{% url 'd_log_details' i.id %}"
+        class="text-white bg-blue-700  hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Details</a>
+
+    <br><br>
+
+    {% endfor %}
+</ul>
+
+{% endblock content %}

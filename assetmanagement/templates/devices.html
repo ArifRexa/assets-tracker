@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+This is devices html
+<br><br>
+<a href="{% url 'add_device' %}" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Add Device</a>
+<br>
+<ul>
+{% for i in all_devices %}
+
+<li>{{i}}</li>
+<a href="{% url 'dev_details' i.id%}" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Details</a>
+<br><br>
+{% endfor %}
+</ul>
+
+
+
+<form method="get">
+    <label for="device_type">Select Device Type:</label>
+    <select name="device_type" id="device_type">
+        <option value="">All</option>
+        <option value="Laptop">Laptop</option>
+        <option value="Mobile">Mobile</option>
+        <!-- Add more options as needed -->
+    </select>
+    <button type="submit">Filter</button>
+</form>
+
+{% if selected_device_type %}
+    <h2>Filtered Devices (Device Type: {{ selected_device_type }})</h2>
+{% else %}
+    <h2>All Devices</h2>
+{% endif %}
+
+<ul>
+    {% for device in devices %}
+        <li>{{ device.name }} - {{ device.device_type }}</li>
+    {% empty %}
+        <li>No devices found.</li>
+    {% endfor %}
+</ul>
+
+
+  
+{% endblock content %}

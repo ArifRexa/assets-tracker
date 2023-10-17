@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+This is device details
+
+<p>{{dev.id}}</p>
+<p>Device Name: {{dev.name}}</p>
+<p>Brand: {{dev.brand}}</p>
+<p>Device Type: {{dev.device_type}}</p>
+<p>Starting Date: {{dev.starting_date}}</p>
+<p>Company: {{dev.company}}</p>
+<p>Provided: {{dev.is_checked_out}}</p>
+
+<br>
+
+<a href="{% url 'edit_device' dev.id%}"  class="text-white bg-blue-700  hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Edit</a>
+
+<a href="{% url 'delete_device' dev.id%}"  class="text-white bg-blue-700  hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Delete</a>
+  
+{% endblock content %}
