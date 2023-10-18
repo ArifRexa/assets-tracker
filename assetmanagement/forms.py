@@ -53,10 +53,12 @@ class AddDevice(forms.ModelForm):
     #     "required":'False',
     #     "multiple": "True",
     # }), label="")
+    # images = forms.FileField(widget=forms.ClearableFileInput(attrs = {'allow_multiple_selected':True}),required=False)
 
     class Meta:
         model = Device
         fields = '__all__'
+        
 
     def __init__(self, user, *args, **kwargs):
         super(AddDevice, self).__init__(*args, **kwargs)

@@ -30,8 +30,8 @@ class Device(models.Model):
     device_type = models.CharField(max_length=255, null=True)
     starting_date = models.DateTimeField(null=True)
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
-    # images = models.FileField(upload_to='device/image', default="")
-    images = models.ImageField(upload_to='device/image', default="")
+    images = models.FileField(upload_to='device/image', null=True)
+    # images = models.ImageField(upload_to='device/image', default="")
     is_checked_out = models.BooleanField(default=False)
     
     def __str__(self):

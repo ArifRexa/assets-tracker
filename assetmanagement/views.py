@@ -161,7 +161,9 @@ def devices(request):
 def add_device(request):
     if request.method == 'POST':
         form = AddDevice(request.user, request.POST, request.FILES)
+        # images = request.FILES.getlist('images')
         if form.is_valid():
+            # add_post = Device.objects.create(images = images)
             add_post = form.save(commit=False)
             add_post.author = request.user
             add_post.save()
