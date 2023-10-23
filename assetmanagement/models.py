@@ -24,18 +24,41 @@ class Employee(models.Model):
     def __str__(self):
         return self.name
 
+# class Post(models.Model):
+#     title = models.CharField(max_length=250)
+#     description = models.TextField()
+#     image = models.FileField(blank=True)
+ 
+#     def __str__(self):
+#         return self.title
+ 
+
+
+
 class Device(models.Model):
     name = models.CharField(max_length=255)
     brand = models.CharField(max_length=255, null=True)
     device_type = models.CharField(max_length=255, null=True)
     starting_date = models.DateTimeField(null=True)
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
-    images = models.FileField(upload_to='device/image', null=True)
+    # images = models.FileField(blank=True)
     # images = models.ImageField(upload_to='device/image', default="")
     is_checked_out = models.BooleanField(default=False)
     
     def __str__(self):
         return self.name
+    
+class DeviceImage(models.Model):
+    product = models.ForeignKey(Device, related_name='images', on_delete=models.CASCADE)
+    images = models.ImageField(upload_to='device/image')
+
+    
+# class PostImage(models.Model):
+#     post = models.ForeignKey(Device, default=None, on_delete=models.CASCADE)
+#     images = models.FileField(upload_to='device/image')
+ 
+#     def __str__(self):
+#         return self.post.name
 
 class DeviceLog(models.Model):
     device = models.ForeignKey(Device, on_delete=models.CASCADE)
